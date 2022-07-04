@@ -14,11 +14,8 @@ import (
 	"k8s.io/apiserver/pkg/server/healthz"
 	"k8s.io/client-go/restmapper"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/discovery"
-	"github.com/clusterpedia-io/client-go/fake/storage"
-	"github.com/clusterpedia-io/client-go/fake/utils/filters"
 	informers "github.com/clusterpedia-io/client-go/pkg/generated/informers/externalversions"
-	"github.com/clusterpedia-io/client-go/pkg/version"
+	"github.com/clusterpedia-io/fake-apiserver/version"
 )
 
 var (
