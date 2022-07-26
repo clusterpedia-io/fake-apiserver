@@ -3,7 +3,7 @@ package filters
 import (
 	"net/http"
 
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 func WithRequestQuery(handler http.Handler) http.Handler {

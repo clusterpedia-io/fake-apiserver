@@ -13,7 +13,7 @@ import (
 	genericapirequest "k8s.io/apiserver/pkg/endpoints/request"
 	"k8s.io/apiserver/pkg/registry/rest"
 
-	"github.com/clusterpedia-io/client-go/fake/utils"
+	"github.com/clusterpedia-io/fake-apiserver/utils"
 )
 
 type defaultTableConvertor struct {

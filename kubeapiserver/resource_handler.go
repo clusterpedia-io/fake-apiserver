@@ -12,9 +12,9 @@ import (
 	genericrequest "k8s.io/apiserver/pkg/endpoints/request"
 	"k8s.io/klog/v2"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/discovery"
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
 	clusterlister "github.com/clusterpedia-io/client-go/pkg/generated/listers/cluster/v1alpha2"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/discovery"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 type ResourceHandler struct {

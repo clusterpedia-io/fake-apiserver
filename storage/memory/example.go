@@ -5,7 +5,7 @@ import (
 	"log"
 
 	internal "github.com/clusterpedia-io/api/clusterpedia"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcescheme"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcescheme"
 
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"

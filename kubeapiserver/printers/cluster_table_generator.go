@@ -6,7 +6,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/kubernetes/pkg/printers"
 
-	"github.com/clusterpedia-io/client-go/fake/utils"
+	"github.com/clusterpedia-io/fake-apiserver/utils"
 )
 
 type ClusterTableGenerator struct {

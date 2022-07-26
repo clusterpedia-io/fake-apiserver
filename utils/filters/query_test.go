@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 func TestWithRequestQuery(t *testing.T) {

@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/clusterpedia-io/api v0.0.0-20220507025304-d012b86e5587
-	github.com/clusterpedia-io/client-go v0.0.0-20220614085832-ea9108b5dd3d
+	github.com/clusterpedia-io/client-go v0.0.0-20220721030555-ba14329a2df5
 	gorm.io/datatypes v1.0.6
 	k8s.io/api v0.24.0
 	k8s.io/apimachinery v0.24.0

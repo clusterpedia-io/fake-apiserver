@@ -8,8 +8,8 @@ import (
 	serverstorage "k8s.io/apiserver/pkg/server/storage"
 	apisstorage "k8s.io/kubernetes/pkg/apis/storage"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcescheme"
-	"github.com/clusterpedia-io/client-go/fake/storage"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcescheme"
+	"github.com/clusterpedia-io/fake-apiserver/storage"
 )
 
 type StorageConfigFactory struct {

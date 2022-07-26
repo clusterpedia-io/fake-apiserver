@@ -11,7 +11,7 @@ import (
 	"k8s.io/apiserver/pkg/endpoints/handlers/negotiation"
 	"k8s.io/apiserver/pkg/endpoints/handlers/responsewriters"
 
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 type versionDiscoveryHandler struct {
