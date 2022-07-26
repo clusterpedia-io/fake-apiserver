@@ -3,6 +3,7 @@ package kubeapiserver
 import (
 	"net/http"
 
+	informers "github.com/clusterpedia-io/client-go/pkg/generated/informers/externalversions"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
@@ -14,7 +15,9 @@ import (
 	"k8s.io/apiserver/pkg/server/healthz"
 	"k8s.io/client-go/restmapper"
 
-	informers "github.com/clusterpedia-io/client-go/pkg/generated/informers/externalversions"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/discovery"
+	"github.com/clusterpedia-io/fake-apiserver/storage"
+	"github.com/clusterpedia-io/fake-apiserver/utils/filters"
 	"github.com/clusterpedia-io/fake-apiserver/version"
 )
 
