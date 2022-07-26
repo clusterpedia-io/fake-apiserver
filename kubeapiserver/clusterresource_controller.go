@@ -8,8 +8,8 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/klog/v2"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/discovery"
 	clusterv1alpha2 "github.com/clusterpedia-io/api/cluster/v1alpha2"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/discovery"
 )
 
 type ClusterResourceController struct {

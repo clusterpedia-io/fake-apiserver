@@ -11,11 +11,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/clusterpedia-io/fake-apiserver/storage"
+	"github.com/clusterpedia-io/fake-apiserver/utils"
+
 	internal "github.com/clusterpedia-io/api/clusterpedia"
 	fields2 "github.com/clusterpedia-io/api/clusterpedia/fields"
 	"github.com/clusterpedia-io/client-go/constants"
-	"github.com/clusterpedia-io/client-go/fake/storage"
-	"github.com/clusterpedia-io/client-go/fake/utils"
 	"gorm.io/datatypes"
 	"k8s.io/apimachinery/pkg/api/meta"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

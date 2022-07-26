@@ -13,12 +13,12 @@ import (
 	"k8s.io/apiserver/pkg/registry/rest"
 	storeerr "k8s.io/apiserver/pkg/storage/errors"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/printers"
-	"github.com/clusterpedia-io/client-go/fake/storage"
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
 	internal "github.com/clusterpedia-io/api/clusterpedia"
 	scheme "github.com/clusterpedia-io/api/clusterpedia/scheme"
 	v1beta1 "github.com/clusterpedia-io/api/clusterpedia/v1beta1"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/printers"
+	"github.com/clusterpedia-io/fake-apiserver/storage"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 type RESTStorage struct {

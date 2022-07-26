@@ -6,14 +6,14 @@ import (
 	"net/http"
 	"path"
 
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
+
+	"github.com/clusterpedia-io/api/clusterpedia/v1beta1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	genericrequest "k8s.io/apiserver/pkg/endpoints/request"
 	genericrest "k8s.io/apiserver/pkg/registry/rest"
-
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
-	"github.com/clusterpedia-io/api/clusterpedia/v1beta1"
 )
 
 // REST implements RESTStorage for Resources API

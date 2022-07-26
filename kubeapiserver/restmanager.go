@@ -24,13 +24,13 @@ import (
 	printersinternal "k8s.io/kubernetes/pkg/printers/internalversion"
 	printerstorage "k8s.io/kubernetes/pkg/printers/storage"
 
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/discovery"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/printers"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcerest"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcescheme"
-	unstructuredresourcescheme "github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcescheme/unstructured"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver/storageconfig"
-	"github.com/clusterpedia-io/client-go/fake/storage"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/discovery"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/printers"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcerest"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcescheme"
+	unstructuredresourcescheme "github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcescheme/unstructured"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/storageconfig"
+	"github.com/clusterpedia-io/fake-apiserver/storage"
 )
 
 type RESTManager struct {

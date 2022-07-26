@@ -7,15 +7,15 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/clusterpedia-io/client-go/fake/apiserver/registry/clusterpedia/resources"
-	"github.com/clusterpedia-io/client-go/fake/kubeapiserver"
-	"github.com/clusterpedia-io/client-go/fake/storage"
-	"github.com/clusterpedia-io/client-go/fake/utils/filters"
+	"github.com/clusterpedia-io/fake-apiserver/apiserver/registry/clusterpedia/resources"
+	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver"
+	"github.com/clusterpedia-io/fake-apiserver/storage"
+	"github.com/clusterpedia-io/fake-apiserver/utils/filters"
+
 	internal "github.com/clusterpedia-io/api/clusterpedia"
 	"github.com/clusterpedia-io/api/clusterpedia/install"
 	metainternal "k8s.io/apimachinery/pkg/apis/meta/internalversion"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/runtime/serializer"

@@ -1,10 +1,10 @@
 package resourcescheme
 
 import (
+	unstructuredresourcescheme "github.com/clusterpedia-io/fake-apiserver/kubeapiserver/resourcescheme/unstructured"
+
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/kubernetes/pkg/api/legacyscheme"
-
-	unstructuredresourcescheme "github.com/clusterpedia-io/client-go/fake/kubeapiserver/resourcescheme/unstructured"
 )
 
 var (

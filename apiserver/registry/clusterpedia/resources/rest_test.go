@@ -12,7 +12,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	genericrequest "k8s.io/apiserver/pkg/endpoints/request"
 
-	"github.com/clusterpedia-io/client-go/fake/utils/request"
+	"github.com/clusterpedia-io/fake-apiserver/utils/request"
 )
 
 const testResponseTmpl = "Cluster Name: %s, Request Path: %s"
