@@ -20,7 +20,9 @@ var pediaClusterTemp = `
 				 "events",
 				 "secrets",
 				 "persistentvolumeclaims",
-				 "persistentvolumes"
+				 "persistentvolumes",
+				 "resourcequotas",
+				 "limitranges"
 			  ],
 			  "versions":[
 				 "v1"
@@ -94,7 +96,8 @@ var pediaClusterTemp = `
 			  "group":"networking.k8s.io",
 			  "resources":[
 				 "ingresses",
-				 "ingressclasses"
+				 "ingressclasses",
+				 "networkpolicies"
 			  ],
 			  "versions":[
 				 "v1"
@@ -242,6 +245,30 @@ var pediaClusterTemp = `
 					"kind":"PersistentVolume",
 					"name":"persistentvolumes",
 					"namespaced":false,
+					"syncConditions":[
+					    {
+						   "status":"Syncing",
+						   "storageVersion":"v1",
+						   "version":"v1"
+					    }
+					]
+				 }，
+				 {
+					"kind":"ResourceQuota",
+					"name":"resourcequotas",
+					"namespaced":true,
+					"syncConditions":[
+					    {
+						   "status":"Syncing",
+						   "storageVersion":"v1",
+						   "version":"v1"
+					    }
+					]
+				 }，
+				 {
+					"kind":"LimitRange",
+					"name":"limitranges",
+					"namespaced":true,
 					"syncConditions":[
 					    {
 						   "status":"Syncing",
@@ -418,6 +445,18 @@ var pediaClusterTemp = `
 					"kind":"IngressClass",
 					"name":"ingressclasses",
 					"namespaced":false,
+					"syncConditions":[
+					    {
+						   "status":"Syncing",
+						   "storageVersion":"v1",
+						   "version":"v1"
+					    }
+					]
+				 }，
+				 {
+					"kind":"NetworkPolicy",
+					"name":"networkpolicies",
+					"namespaced":true,
 					"syncConditions":[
 					    {
 						   "status":"Syncing",
