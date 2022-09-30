@@ -252,7 +252,7 @@ var pediaClusterTemp = `
 						   "version":"v1"
 					    }
 					]
-				 }，
+				 },
 				 {
 					"kind":"ResourceQuota",
 					"name":"resourcequotas",
@@ -264,7 +264,7 @@ var pediaClusterTemp = `
 						   "version":"v1"
 					    }
 					]
-				 }，
+				 },
 				 {
 					"kind":"LimitRange",
 					"name":"limitranges",
@@ -452,7 +452,7 @@ var pediaClusterTemp = `
 						   "version":"v1"
 					    }
 					]
-				 }，
+				 },
 				 {
 					"kind":"NetworkPolicy",
 					"name":"networkpolicies",
