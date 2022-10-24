@@ -6,13 +6,13 @@ require (
 	github.com/clusterpedia-io/api v0.0.0-20220507025304-d012b86e5587
 	github.com/clusterpedia-io/client-go v0.0.0-20220721030555-ba14329a2df5
 	gorm.io/datatypes v1.0.6
-	k8s.io/api v0.24.0
-	k8s.io/apimachinery v0.24.0
-	k8s.io/apiserver v0.24.0
-	k8s.io/client-go v0.24.0
-	k8s.io/component-base v0.24.0
+	k8s.io/api v0.25.0
+	k8s.io/apimachinery v0.25.0
+	k8s.io/apiserver v0.25.0
+	k8s.io/client-go v0.25.0
+	k8s.io/component-base v0.25.0
 	k8s.io/klog/v2 v2.60.1
-	k8s.io/kubernetes v1.24.0
+	k8s.io/kubernetes v1.25.0
 )
 
 require (
