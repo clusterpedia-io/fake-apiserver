@@ -7,7 +7,7 @@ import (
 
 	flag "github.com/spf13/pflag"
 
-	"github.com/clusterpedia-io/clusterpedia/pkg/version"
+	"github.com/clusterpedia-io/fake-apiserver/version"
 )
 
 // copy from k8s.io/component-base/version/verflag/verflag.go
