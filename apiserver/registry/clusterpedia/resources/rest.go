@@ -82,3 +82,5 @@ func (r *REST) Connect(ctx context.Context, prefixPath string, _ runtime.Object,
 		http.StripPrefix(serverPrefix, r.server).ServeHTTP(writer, req)
 	}), nil
 }
+
+func (r *REST) Destroy() {}

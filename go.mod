@@ -3,8 +3,9 @@ module github.com/clusterpedia-io/fake-apiserver
 go 1.17
 
 require (
-	github.com/clusterpedia-io/api v0.0.0-20220507025304-d012b86e5587
+	github.com/clusterpedia-io/api v0.0.0-20220802044336-d3ea49998d11
 	github.com/clusterpedia-io/client-go v0.0.0-20220721030555-ba14329a2df5
+	github.com/spf13/pflag v1.0.5
 	gorm.io/datatypes v1.0.6
 	k8s.io/api v0.25.0
 	k8s.io/apimachinery v0.25.0
@@ -62,7 +63,6 @@ require (
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/spf13/cobra v1.4.0 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
 	go.etcd.io/etcd/api/v3 v3.5.1 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.1 // indirect
 	go.etcd.io/etcd/client/v3 v3.5.1 // indirect
