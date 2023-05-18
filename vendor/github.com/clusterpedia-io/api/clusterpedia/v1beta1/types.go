@@ -49,6 +49,9 @@ type ListOptions struct {
 	// +optional
 	WithRemainingCount *bool `json:"withRemainingCount,omitempty"`
 
+	// +optional
+	OnlyMetadata bool `json:"onlyMetadata,omitempty"`
+
 	urlQuery url.Values
 }
 
@@ -72,6 +75,12 @@ type CollectionResource struct {
 
 	// +optional
 	Items []runtime.RawExtension `json:"items,omitempty"`
+
+	// +optional
+	Continue string `json:"continue,omitempty"`
+
+	// +optional
+	RemainingItemCount *int64 `json:"remainingItemCount,omitempty"`
 }
 
 type CollectionResourceType struct {
