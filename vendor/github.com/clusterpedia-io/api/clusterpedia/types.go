@@ -71,6 +71,8 @@ type ListOptions struct {
 	URLQuery url.Values
 
 	// RelatedResources []schema.GroupVersionKind
+
+	OnlyMetadata bool
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -80,6 +82,9 @@ type CollectionResource struct {
 
 	ResourceTypes []CollectionResourceType
 	Items         []runtime.Object
+
+	Continue           string
+	RemainingItemCount *int64
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

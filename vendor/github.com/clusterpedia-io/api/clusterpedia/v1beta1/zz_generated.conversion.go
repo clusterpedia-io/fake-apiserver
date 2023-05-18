@@ -88,6 +88,8 @@ func autoConvert_v1beta1_CollectionResource_To_clusterpedia_CollectionResource(i
 	} else {
 		out.Items = nil
 	}
+	out.Continue = in.Continue
+	out.RemainingItemCount = (*int64)(unsafe.Pointer(in.RemainingItemCount))
 	return nil
 }
 
@@ -110,6 +112,8 @@ func autoConvert_clusterpedia_CollectionResource_To_v1beta1_CollectionResource(i
 	} else {
 		out.Items = nil
 	}
+	out.Continue = in.Continue
+	out.RemainingItemCount = (*int64)(unsafe.Pointer(in.RemainingItemCount))
 	return nil
 }
 
@@ -201,6 +205,7 @@ func autoConvert_v1beta1_ListOptions_To_clusterpedia_ListOptions(in *ListOptions
 	out.OwnerSeniority = in.OwnerSeniority
 	out.WithContinue = (*bool)(unsafe.Pointer(in.WithContinue))
 	out.WithRemainingCount = (*bool)(unsafe.Pointer(in.WithRemainingCount))
+	out.OnlyMetadata = in.OnlyMetadata
 	// WARNING: in.urlQuery requires manual conversion: does not exist in peer-type
 	return nil
 }
@@ -229,6 +234,7 @@ func autoConvert_clusterpedia_ListOptions_To_v1beta1_ListOptions(in *clusterpedi
 	// WARNING: in.EnhancedFieldSelector requires manual conversion: does not exist in peer-type
 	// WARNING: in.ExtraLabelSelector requires manual conversion: does not exist in peer-type
 	// WARNING: in.URLQuery requires manual conversion: does not exist in peer-type
+	out.OnlyMetadata = in.OnlyMetadata
 	return nil
 }
 
@@ -318,6 +324,13 @@ func autoConvert_url_Values_To_v1beta1_ListOptions(in *url.Values, out *ListOpti
 		}
 	} else {
 		out.WithRemainingCount = nil
+	}
+	if values, ok := map[string][]string(*in)["onlyMetadata"]; ok && len(values) > 0 {
+		if err := runtime.Convert_Slice_string_To_bool(&values, &out.OnlyMetadata, s); err != nil {
+			return err
+		}
+	} else {
+		out.OnlyMetadata = false
 	}
 	// WARNING: Field urlQuery does not have json tag, skipping.
 
