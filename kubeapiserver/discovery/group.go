@@ -39,7 +39,7 @@ func (h *groupDiscoveryHandler) ServeHTTP(w http.ResponseWriter, req *http.Reque
 	if keepUnversioned(pathParts[1]) {
 		serializer = h.stripVersionNegotiatedSerializer
 	}
-	responsewriters.WriteObjectNegotiated(serializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, &group)
+	responsewriters.WriteObjectNegotiated(serializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, &group, true)
 }
 
 type clusterGroupDiscoveryHandler struct {
