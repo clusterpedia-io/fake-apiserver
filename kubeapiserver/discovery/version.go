@@ -60,7 +60,7 @@ func (h *versionDiscoveryHandler) ServeHTTP(w http.ResponseWriter, req *http.Req
 
 	responsewriters.WriteObjectNegotiated(
 		serializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK,
-		&metav1.APIResourceList{GroupVersion: groupVersion.String(), APIResources: resources},
+		&metav1.APIResourceList{GroupVersion: groupVersion.String(), APIResources: resources}, true,
 	)
 }
 

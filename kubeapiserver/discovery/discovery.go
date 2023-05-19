@@ -129,7 +129,7 @@ func (m *DiscoveryManager) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			apigroups = m.apigroups.Load().([]metav1.APIGroup)
 		}
 
-		responsewriters.WriteObjectNegotiated(m.serializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, &metav1.APIGroupList{Groups: apigroups})
+		responsewriters.WriteObjectNegotiated(m.serializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, &metav1.APIGroupList{Groups: apigroups}, true)
 		return
 	}
 
@@ -155,7 +155,7 @@ func (m *DiscoveryManager) handleLegacyAPI(pathParts []string, w http.ResponseWr
 			Versions: []string{"v1"},
 		}
 
-		responsewriters.WriteObjectNegotiated(m.stripVersionNegotiatedSerializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, apiVersions)
+		responsewriters.WriteObjectNegotiated(m.stripVersionNegotiatedSerializer, negotiation.DefaultEndpointRestrictions, schema.GroupVersion{}, w, req, http.StatusOK, apiVersions, true)
 		return
 	}
 
