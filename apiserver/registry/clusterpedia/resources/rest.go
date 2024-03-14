@@ -24,6 +24,7 @@ type REST struct {
 var _ genericrest.Scoper = &REST{}
 var _ genericrest.Storage = &REST{}
 var _ genericrest.Connecter = &REST{}
+var _ genericrest.SingularNameProvider = &REST{}
 
 // NewREST returns a RESTStorage object that will work against API services
 func NewREST(resourceHandler http.Handler) *REST {
@@ -84,3 +85,7 @@ func (r *REST) Connect(ctx context.Context, prefixPath string, _ runtime.Object,
 }
 
 func (r *REST) Destroy() {}
+
+func (r *REST) GetSingularName() string {
+	return ""
+}
