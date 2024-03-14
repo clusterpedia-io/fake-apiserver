@@ -7,13 +7,14 @@ import (
 	"net/http"
 	"net/http/httptest"
 
+	internal "github.com/clusterpedia-io/api/clusterpedia"
+	"github.com/clusterpedia-io/api/clusterpedia/install"
 	"github.com/clusterpedia-io/fake-apiserver/apiserver/registry/clusterpedia/resources"
 	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver"
 	"github.com/clusterpedia-io/fake-apiserver/storage"
 	"github.com/clusterpedia-io/fake-apiserver/utils/filters"
+	"github.com/clusterpedia-io/fake-apiserver/utils/openapi"
 
-	internal "github.com/clusterpedia-io/api/clusterpedia"
-	"github.com/clusterpedia-io/api/clusterpedia/install"
 	metainternal "k8s.io/apimachinery/pkg/apis/meta/internalversion"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -21,6 +22,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/serializer"
 	"k8s.io/apimachinery/pkg/version"
 	"k8s.io/apiserver/pkg/authorization/authorizerfactory"
+	k8sopenapi "k8s.io/apiserver/pkg/endpoints/openapi"
 	"k8s.io/apiserver/pkg/registry/rest"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	"k8s.io/apiserver/pkg/server/healthz"
@@ -65,6 +67,9 @@ func NewFakeApiserver(storageFactory storage.StorageFactory) (*httptest.Server, 
 	genericConfig.LoopbackClientConfig = &restclient.Config{
 		ContentConfig: restclient.ContentConfig{NegotiatedSerializer: Codecs},
 	}
+	genericConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIConfig(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
+	genericConfig.OpenAPIConfig = genericapiserver.DefaultOpenAPIConfig(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
+	genericConfig.OpenAPIConfig.Info.Title = "clusterpedia"
 	genericConfig.Version = &version.Info{
 		Major: "1",
 		Minor: "0",
