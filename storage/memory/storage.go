@@ -494,42 +494,65 @@ func (db *DataBase) LabelSelect(list []*Resource, s labels.Selector) ([]*Resourc
 
 func (db *DataBase) EnhancedSelect(list []*Resource, s fields2.Selector) ([]*Resource, error) {
 	var res []*Resource
-	if r, b := s.Requirements(); b {
+
+	if r, ok := s.Requirements(); ok {
 		for _, obj := range list {
-			s2, err := obj.Object.MarshalJSON()
-			if err != nil {
-				return nil, err
-			}
-			var target map[string]interface{}
-			err = json.Unmarshal(s2, &target)
-			if err != nil {
-				return nil, err
-			}
-			for _, v := range r {
-				targetList := strings.Split(v.Fields()[len(v.Fields())-1].Path().String(), ".")
-				for index, field := range targetList {
-					if index < len(targetList)-1 {
-						var ok bool
-						target, ok = target[field].(map[string]interface{})
-						if !ok {
-							return nil, err
-						}
-					} else {
-						n, ok := target[field].(string)
-						if !ok {
-							return nil, err
-						}
-						for _, value := range v.Values().List() {
-							if value == n {
-								res = append(res, obj)
-							}
-						}
-					}
-				}
+			if objMeetsRequirements(obj, r) {
+				res = append(res, obj)
 			}
 		}
 	}
+
 	return res, nil
+}
+
+func objMeetsRequirements(obj *Resource, requirements []fields2.Requirement) bool {
+	objJSON, err := obj.Object.MarshalJSON()
+	if err != nil {
+		return false
+	}
+
+	var target map[string]interface{}
+	err = json.Unmarshal(objJSON, &target)
+	if err != nil {
+		return false
+	}
+	// Find an object if all requirements are meet
+	for _, req := range requirements {
+		if !fieldValueMatches(req, target) {
+			return false
+		}
+	}
+
+	return true
+}
+
+func fieldValueMatches(req fields2.Requirement, target map[string]interface{}) bool {
+	fieldPath := req.Fields()[len(req.Fields())-1].Path().String()
+	fieldList := strings.Split(fieldPath, ".")
+
+	currentValue := target
+	for _, field := range fieldList[:len(fieldList)-1] {
+		nextValue, ok := currentValue[field].(map[string]interface{})
+		if !ok {
+			return false
+		}
+		currentValue = nextValue
+	}
+	// check the final value is match the expected Value in req
+	finalField := fieldList[len(fieldList)-1]
+	finalValue, ok := currentValue[finalField].(string)
+	if !ok {
+		return false
+	}
+
+	for _, expectedValue := range req.Values().List() {
+		if expectedValue == finalValue {
+			return true
+		}
+	}
+
+	return false
 }
 
 func (db *DataBase) OwnerId(s labels.Selector) []string {
