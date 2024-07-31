@@ -67,7 +67,7 @@ func NewFakeApiserver(storageFactory storage.StorageFactory) (*httptest.Server, 
 	genericConfig.LoopbackClientConfig = &restclient.Config{
 		ContentConfig: restclient.ContentConfig{NegotiatedSerializer: Codecs},
 	}
-	genericConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIConfig(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
+	genericConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIV3Config(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
 	genericConfig.OpenAPIConfig = genericapiserver.DefaultOpenAPIConfig(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
 	genericConfig.OpenAPIConfig.Info.Title = "clusterpedia"
 	genericConfig.Version = &version.Info{
