@@ -20,12 +20,12 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/runtime/serializer"
-	"k8s.io/apimachinery/pkg/version"
 	"k8s.io/apiserver/pkg/authorization/authorizerfactory"
 	k8sopenapi "k8s.io/apiserver/pkg/endpoints/openapi"
 	"k8s.io/apiserver/pkg/registry/rest"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	"k8s.io/apiserver/pkg/server/healthz"
+	utilversion "k8s.io/apiserver/pkg/util/version"
 	restclient "k8s.io/client-go/rest"
 	"k8s.io/client-go/restmapper"
 )
@@ -70,10 +70,7 @@ func NewFakeApiserver(storageFactory storage.StorageFactory) (*httptest.Server, 
 	genericConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIV3Config(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
 	genericConfig.OpenAPIConfig = genericapiserver.DefaultOpenAPIConfig(openapi.GetOpenAPIDefinitions, k8sopenapi.NewDefinitionNamer(Scheme))
 	genericConfig.OpenAPIConfig.Info.Title = "clusterpedia"
-	genericConfig.Version = &version.Info{
-		Major: "1",
-		Minor: "0",
-	}
+	genericConfig.EffectiveVersion = utilversion.NewEffectiveVersion("1.0")
 	completedConfig := genericConfig.Complete()
 
 	// init apiGroupResources

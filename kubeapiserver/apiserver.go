@@ -13,12 +13,12 @@ import (
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericfilters "k8s.io/apiserver/pkg/server/filters"
 	"k8s.io/apiserver/pkg/server/healthz"
+	utilversion "k8s.io/apiserver/pkg/util/version"
 	"k8s.io/client-go/restmapper"
 
 	"github.com/clusterpedia-io/fake-apiserver/kubeapiserver/discovery"
 	"github.com/clusterpedia-io/fake-apiserver/storage"
 	"github.com/clusterpedia-io/fake-apiserver/utils/filters"
-	"github.com/clusterpedia-io/fake-apiserver/version"
 )
 
 var (
@@ -70,15 +70,15 @@ type Config struct {
 }
 
 func (c *Config) Complete() CompletedConfig {
+	if c.GenericConfig.EffectiveVersion == nil {
+		c.GenericConfig.EffectiveVersion = utilversion.DefaultKubeEffectiveVersion()
+	}
+
 	completed := &completedConfig{
 		GenericConfig: c.GenericConfig.Complete(),
 		ExtraConfig:   &c.ExtraConfig,
 	}
 
-	if c.GenericConfig.Version == nil {
-		version := version.GetKubeVersion()
-		c.GenericConfig.Version = &version
-	}
 	c.GenericConfig.RequestInfoResolver = wrapRequestInfoResolverForNamespace{
 		c.GenericConfig.RequestInfoResolver,
 	}

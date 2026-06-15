@@ -23,6 +23,7 @@ const (
 	SearchLabelOwnerGroupResource = "search.clusterpedia.io/owner-gr"
 	SearchLabelOwnerSeniority     = "search.clusterpedia.io/owner-seniority"
 
+	SearchLabelInjectEvents       = "search.clusterpedia.io/inject-events"
 	SearchLabelWithContinue       = "search.clusterpedia.io/with-continue"
 	SearchLabelWithRemainingCount = "search.clusterpedia.io/with-remaining-count"
 
@@ -32,8 +33,11 @@ const (
 	SearchLabelSince  = "search.clusterpedia.io/since"
 	SearchLabelBefore = "search.clusterpedia.io/before"
 
+	SearchLabelForwardRequest = "search.clusterpedia.io/forward"
+
 	ShadowAnnotationClusterName          = "shadow.clusterpedia.io/cluster-name"
 	ShadowAnnotationGroupVersionResource = "shadow.clusterpedia.io/gvr"
+	ShadowAnnotationEvents               = "shadow.clusterpedia.io/events"
 )
 
 type OrderBy struct {
@@ -59,6 +63,7 @@ type ListOptions struct {
 	Since  *metav1.Time
 	Before *metav1.Time
 
+	InjectEvents       bool
 	WithContinue       *bool
 	WithRemainingCount *bool
 
